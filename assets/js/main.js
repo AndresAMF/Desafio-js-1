@@ -13,7 +13,8 @@ button1.addEventListener("click", function () {
  
 
   let total = inputCantidad * parseInt(inputPrecio);
-  let color = inputColor.toString();
+  let color = inputColor.toString().toLowerCase();
+  
 
   let s = new Option().style;
   s.color = color;
