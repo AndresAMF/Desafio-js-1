@@ -1,12 +1,28 @@
-function calcular() {
-  inputCantidad = document.querySelector("#cantidad").value;
-  inputColor = document.querySelector("#color").value;
-  inputPrecio = document.querySelector("#precio").textContent;
+button1.addEventListener("click", function () {
+  let inputCantidad = document.querySelector("#cantidad").value;
+  let inputColor = document.querySelector("#color").value;
+  let inputPrecio = document.querySelector("#precio").textContent;
 
-  total = Number(inputCantidad) * Number(inputPrecio);
-  color = String(inputColor);
+  if (
+    inputCantidad === undefined ||
+    inputCantidad === null ||
+    inputCantidad === ""
+  ) {
+    inputCantidad = 0;
+  }
+ 
 
-  document.querySelector("#labelTotal").textContent = "$" + total;
-  document.querySelector("#labelCantidad").textContent = inputCantidad;
-  document.querySelector("#labelColor").style.backgroundColor = color;
-}
+  let total = inputCantidad * parseInt(inputPrecio);
+  let color = inputColor.toString();
+
+  let s = new Option().style;
+  s.color = color;
+
+  if ((s.color == color) == true) {
+    document.querySelector("#labelTotal").textContent = "$" + total;
+    document.querySelector("#labelCantidad").textContent = inputCantidad;
+    document.querySelector("#labelColor").style.backgroundColor = color;
+  } else {
+    alert("Ingrese un color válido");
+  }
+});
